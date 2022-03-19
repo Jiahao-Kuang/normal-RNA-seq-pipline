@@ -9,23 +9,13 @@
 #' @param omitNA omitNA
 #' @param MERGEtoDATA do you want to merge chanegd geneid to the rawdata
 #' @example
-#' IDchange(DATA, geneIDtoCHANGE, CHANGEfromTYPE, CHANGEtoTYPE, SPECIES,omitNA = TRUE, MERGEtoDATA = FALSE,drop = TRUE)
-IDchange<-function (DATA, geneIDtoCHANGE, CHANGEfromTYPE, CHANGEtoTYPE, SPECIES,omitNA = TRUE, MERGEtoDATA = FALSE,drop = TRUE)
+#' IDchange(geneIDtoCHANGE, CHANGEfromTYPE, CHANGEtoTYPE, SPECIES,omitNA = TRUE, MERGEtoDATA = FALSE,drop = TRUE)
+IDchange<-function (geneIDtoCHANGE, CHANGEfromTYPE, CHANGEtoTYPE, SPECIES,omitNA = TRUE, MERGEtoDATA = FALSE,drop = TRUE)
 {
-  db <- GOSemSim:::load_OrgDb(OrgDb)
-  idTypes<-keytypes(db)
   species_list<-c("HUMAN","MOUSE","RAT")
   if (!SPECIES%in%species_list) {
     ERRORinSPECIES<-paste("input should be one of",paste(species_list,collapse = ","))
     stop('"SPECIES"', ERRORinSPECIES)
-  }
-  ERRORinTYPE <- paste0("should be one of ", paste(idTypes, collapse = ", "),
-                        ".")
-  if (!CHANGEfromTYPE %in% idTypes) {
-    stop("'CHANGEfromTYPE' ", ERRORinTYPE)
-  }
-  if (!all(CHANGEtoTYPE %in% idTypes)) {
-    stop("'CHANGEtoTYPE' ", ERRORinTYPE)
   }
   if (SPECIES=="HUMAN") {
     library("org.Hs.eg.db")
@@ -39,6 +29,16 @@ IDchange<-function (DATA, geneIDtoCHANGE, CHANGEfromTYPE, CHANGEtoTYPE, SPECIES,
     library("org.Rn.eg.db")
     OrgDb="org.Rn.eg.db"
   }
+  db <- GOSemSim:::load_OrgDb(OrgDb)
+  idTypes<-keytypes(db)
+  if (!CHANGEfromTYPE %in% idTypes) {
+    stop("'CHANGEfromTYPE' ", ERRORinTYPE)
+  }
+  if (!all(CHANGEtoTYPE %in% idTypes)) {
+    stop("'CHANGEtoTYPE' ", ERRORinTYPE)
+  }
+  ERRORinTYPE <- paste0("should be one of ", paste(idTypes, collapse = ", "),
+                        ".")
   geneID<-geneIDtoCHANGE
   geneID %<>% as.character %>% unique
   db <- GOSemSim:::load_OrgDb(OrgDb)
@@ -60,8 +60,8 @@ IDchange<-function (DATA, geneIDtoCHANGE, CHANGEfromTYPE, CHANGEtoTYPE, SPECIES,
   }
   RES<-res
   if(mode(MERGEtoDATA)=="list"){
-    colnames(RES)[1]<-colnames(DATA)[1]
-    RES<-merge(RES,DATA,by=colnames(DATA)[1])
+    colnames(RES)[1]<-colnames(MERGEtoDATA)[1]
+    RES<-merge(RES,MERGEtoDATA,by=colnames(MERGEtoDATA)[1])
     RES<-RES[,-1]
   }
   return(RES)

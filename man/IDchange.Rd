@@ -5,7 +5,6 @@
 \title{IDchange}
 \usage{
 IDchange(
-  DATA,
   geneIDtoCHANGE,
   CHANGEfromTYPE,
   CHANGEtoTYPE,
@@ -16,8 +15,6 @@ IDchange(
 )
 }
 \arguments{
-\item{DATA}{raw data}
-
 \item{geneIDtoCHANGE}{gene list, may from rawdata}
 
 \item{CHANGEfromTYPE}{type of gene}
@@ -29,6 +26,8 @@ IDchange(
 \item{omitNA}{omitNA}
 
 \item{MERGEtoDATA}{do you want to merge chanegd geneid to the rawdata}
+
+\item{DATA}{raw data}
 }
 \description{
 Analyse RNA-seq data
