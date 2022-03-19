@@ -16,8 +16,5 @@ Imports:
     DOSE,
     dplyr,
     ggheatmap,
-    ggplot2,
-    org.Hs.eg.db,
-    org.Mm.eg.db,
-    org.Rn.eg.db
+    ggplot2
 RoxygenNote: 7.1.2
