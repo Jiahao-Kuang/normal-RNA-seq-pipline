@@ -1,5 +1,5 @@
 # seqanalyseR
-这个R包共分为八个函数，涵盖归一、差异分析、可视化、富集分析,下面是函数的案例  
+这个R包共分为八个函数，涵盖归一化、差异分析、富集分析、可视化,下面是函数的案例  
 # 示例文档
 在data中添加了示例文件，count.txt为生数据，group.csv为分组文件  
 data<-read.table(file = "count.txt",header = T)   
