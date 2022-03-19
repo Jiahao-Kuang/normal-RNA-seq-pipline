@@ -10,12 +10,9 @@ A package to provide RNA-seq downstream analysis
 }
 \section{Functions }{
 
-RNA-seq 下游分析
-用help函数查看下列每一个函数的帮助
-}
-
-\section{1.countTPM }{
-算TPM值，输入RAWDATA
+这个R包共分为八个函数，涵盖归一、差异分析、可视化、富集分析,下面是函数的案例
+nyq2022<-read.table（file = "nyq2022.txt",header = T,row.names = 1
+group<-read.csv(file = "group.csv",header = T)
 }
 
 \section{2.differenceALALYSIS }{
@@ -52,5 +49,9 @@ NA
 
 \section{8.plotHEATMAP2 }{
 画热图，更加符合审美
+}
+
+\section{9.DOWNstreamANALYSIS }{
+ 走完整个下游分析
 }
 
