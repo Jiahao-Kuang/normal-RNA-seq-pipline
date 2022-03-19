@@ -1,10 +1,10 @@
 # seqanalyseR
 这个R包共分为八个函数，涵盖归一、差异分析、可视化、富集分析,下面是函数的案例  
 # 示例文档
-在data中添加了示例文件，count.txt为生数据，group.csv为分组文件
-data<-read.table(file = "count.txt",header = T) 
-group<-read.csv(file = "group.csv",header = T) 
-group2<-read.csv(file = "group.csv",header = T,row.names = 1)
+在data中添加了示例文件，count.txt为生数据，group.csv为分组文件  
+data<-read.table(file = "count.txt",header = T)   
+group<-read.csv(file = "group.csv",header = T)  
+group2<-read.csv(file = "group.csv",header = T,row.names = 1)   
 # 下游分析全过程函数
 DOWNSTREAManalysis(DATA = data,GROUP = group,SPECIES = "RAT",GENE_TYPE = "ENSEMBL")  
 
