@@ -15,7 +15,7 @@ aa<-IDchange(
   CHANGEtoTYPE = "ENTREZID",  
   SPECIES = "RAT",  
   omitNA = TRUE,  
-  MERGEtoDATA = nyq2022,  
+  MERGEtoDATA = data,  
   drop = TRUE 
 ) 
 # 差异分析
