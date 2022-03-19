@@ -12,12 +12,13 @@
 #' IDchange(DATA, geneIDtoCHANGE, CHANGEfromTYPE, CHANGEtoTYPE, SPECIES,omitNA = TRUE, MERGEtoDATA = FALSE,drop = TRUE)
 IDchange<-function (DATA, geneIDtoCHANGE, CHANGEfromTYPE, CHANGEtoTYPE, SPECIES,omitNA = TRUE, MERGEtoDATA = FALSE,drop = TRUE)
 {
+  db <- GOSemSim:::load_OrgDb(OrgDb)
+  idTypes<-keytypes(db)
   species_list<-c("HUMAN","MOUSE","RAT")
   if (!SPECIES%in%species_list) {
     ERRORinSPECIES<-paste("input should be one of",paste(species_list,collapse = ","))
     stop('"SPECIES"', ERRORinSPECIES)
   }
-  idTypes <- idType(OrgDb)
   ERRORinTYPE <- paste0("should be one of ", paste(idTypes, collapse = ", "),
                         ".")
   if (!CHANGEfromTYPE %in% idTypes) {
@@ -38,6 +39,7 @@ IDchange<-function (DATA, geneIDtoCHANGE, CHANGEfromTYPE, CHANGEtoTYPE, SPECIES,
     library("org.Rn.eg.db")
     OrgDb="org.Rn.eg.db"
   }
+  geneID<-geneIDtoCHANGE
   geneID %<>% as.character %>% unique
   db <- GOSemSim:::load_OrgDb(OrgDb)
   res <- suppressWarnings(AnnotationDbi::select(db, keys = geneID,

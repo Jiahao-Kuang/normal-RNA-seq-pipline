@@ -16,5 +16,6 @@ Imports:
     DOSE,
     dplyr,
     ggheatmap,
-    ggplot2
+    ggplot2,
+    GOSemSim
 RoxygenNote: 7.1.2
