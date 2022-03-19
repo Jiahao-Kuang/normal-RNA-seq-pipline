@@ -6,25 +6,25 @@
 #' @param SPECIES specie
 #' @example
 #' KEGGenrich(GENE_TO_ENRICH,SPECIES)
-KEGGenrich<-function(GENE_TO_ENRICH,SPECIES){
-  if (!colnames(GENE_TO_ENRICH$ENTREZID) %in% "ENTREZID") {
-    stop("'GENE_TO_ENRICH' ", c("must at least have a col names'ENTREZID'"))
-  }
+KEGGenrich<-function(x,SPECIES){
   species_list<-c("HUMAN","MOUSE","RAT")
   if (!SPECIES%in%species_list) {
     ERRORinSPECIES<-paste("input should be one of",paste(species_list,collapse = ","))
     stop('"SPECIES"', ERRORinSPECIES)
   }
   if (SPECIES=="HUMAN") {
+    OrgDb="org.Hs.eg.db"
     KEGG_database="hsa"
   }
   if (SPECIES=="MOUSE") {
+    OrgDb="org.Mn.eg.db"
     KEGG_database="mmu"
   }
   if (SPECIES=="RAT") {
+    OrgDb="org.Rn.eg.db"
     KEGG_database="rno"
   }
-  KEGG<-clusterProfiler::enrichKEGG(GENE_TO_ENRICH$ENTREZID,
+  KEGG<-clusterProfiler::enrichKEGG(x,
                                     organism = KEGG_database,
                                     pvalueCutoff = 0.05,#设定p值阈值
                                     qvalueCutoff = 0.05,#设定q值阈值

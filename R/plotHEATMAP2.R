@@ -6,6 +6,7 @@
 #' @example
 #' plotHEATMAP1(difference_analysised_DATA,HEATMAP_COL_GROUP)
 plotHEATMAP2<-function(difference_analysised_DATA,HEATMAP_COL_GROUP){
+  library(dplyr)
   DF=difference_analysised_DATA
   DF_up<-DF[DF$group=="Up",]
   DF_down<-DF[DF$group=="Down",]

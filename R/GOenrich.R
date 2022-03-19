@@ -6,10 +6,7 @@
 #' @param SPECIES specie
 #' @example
 #' GOenrich(GENE_TO_ENRICH,SPECIES)
-GOenrich<-function(GENE_TO_ENRICH,SPECIES){
-  if (!colnames(GENE_TO_ENRICH$ENTREZID) %in% "ENTREZID") {
-    stop("'GENE_TO_ENRICH' ", c("must at least have a col names'ENTREZID'"))
-  }
+GOenrich<-function(x,SPECIES){
   species_list<-c("HUMAN","MOUSE","RAT")
   if (!SPECIES%in%species_list) {
     ERRORinSPECIES<-paste("input should be one of",paste(species_list,collapse = ","))
@@ -28,7 +25,7 @@ GOenrich<-function(GENE_TO_ENRICH,SPECIES){
     OrgDb="org.Rn.eg.db"
   }
   library(clusterProfiler)
-  GO_readble<-clusterProfiler::enrichGO(GENE_TO_ENRICH$ENTREZID,
+  GO_readble<-clusterProfiler::enrichGO(x,
                                         OrgDb = OrgDb,
                                         keyType = 'ENTREZID',
                                         ont = 'ALL',

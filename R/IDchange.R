@@ -11,7 +11,7 @@
 #' @example
 #' IDchange(geneIDtoCHANGE, CHANGEfromTYPE, CHANGEtoTYPE, SPECIES,omitNA = TRUE, MERGEtoDATA = FALSE,drop = TRUE)
 IDchange<-function (geneIDtoCHANGE, CHANGEfromTYPE, CHANGEtoTYPE, SPECIES,omitNA = TRUE, MERGEtoDATA = FALSE,drop = TRUE)
-{
+{ library(dplyr)
   species_list<-c("HUMAN","MOUSE","RAT")
   if (!SPECIES%in%species_list) {
     ERRORinSPECIES<-paste("input should be one of",paste(species_list,collapse = ","))
