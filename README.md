@@ -30,3 +30,8 @@ plotVOCANOL(bb,
             TITAL = "火山图")
 # 热图
 plotHEATMAP1(bb, group2) #分组文件2（行名为样品名，第一列为分组）)
+# 点图
+f<- plotDOT1(GO)
+f<- plotDOT2(GO)
+# 条状图
+g<- plotBAR(KEGG)
