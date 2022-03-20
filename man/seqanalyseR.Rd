@@ -55,3 +55,15 @@ NA
  走完整个下游分析
 }
 
+\section{10.plotDOT1 }{
+ GO/KEGG富集分析可视化（点图）
+}
+
+\section{12.plotDOT2 }{
+ GO/KEGG富集分析可视化（点图）
+}
+
+\section{13.plotBAR }{
+ GO/KEGG富集分析可视化（条状图）
+}
+

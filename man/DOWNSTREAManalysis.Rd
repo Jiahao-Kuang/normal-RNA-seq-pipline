@@ -18,3 +18,10 @@ DOWNSTREAManalysis(DATA, GROUP, GENE_TYPE, SPECIES)
 \description{
 Analyse RNA-seq data
 }
+\examples{
+read.csv
+DOWNSTREAManalysis(DATA = "DATA",
+                   GROUP = "group",
+                   GENE_TYPE = "ENSEMBL",
+                   SPECIES = "RAT")
+}

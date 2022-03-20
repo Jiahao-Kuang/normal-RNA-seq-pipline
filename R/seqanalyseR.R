@@ -23,7 +23,9 @@
 #' @section 7.plotHEATMAP1 :画热图，比较符合审美
 #' @section 8.plotHEATMAP2 :画热图，更加符合审美
 #' @section 9.DOWNstreamANALYSIS : 走完整个下游分析
-#'
+#' @section 10.plotDOT1 : GO/KEGG富集分析可视化（点图）
+#' @section 12.plotDOT2 : GO/KEGG富集分析可视化（点图）
+#' @section 13.plotBAR : GO/KEGG富集分析可视化（条状图）
 #'
 #' @encoding UTF-8
 #' @docType pacakge

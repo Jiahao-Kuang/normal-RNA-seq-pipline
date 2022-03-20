@@ -5,8 +5,12 @@
 #' @param GROUP experiment group
 #' @param GENE_TYPE gene type annotated in raw data
 #' @param SPECIES species
-#' @example
-#' DOWNSTREAManalysis(DATA = "DATA", GROUP = "group", GENE_TYPE = "ENSEMBL", SPECIES = "RAT")
+#' @examples
+#' read.csv
+#' DOWNSTREAManalysis(DATA = "DATA",
+#'                    GROUP = "group",
+#'                    GENE_TYPE = "ENSEMBL",
+#'                    SPECIES = "RAT")
 DOWNSTREAManalysis<-function(DATA, GROUP, GENE_TYPE, SPECIES){
   library(DESeq2)
   library(ggplot2)
